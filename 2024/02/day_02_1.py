@@ -1,16 +1,15 @@
 from pathlib import Path
-from typing import List
 
 
-def read_levels(input_path: Path) -> List[List[int]]:
+def read_levels(input_path: Path) -> list[list[int]]:
     with open(input_path, 'r') as file:
         return [list(map(int, line.split())) for line in file]
 
-def is_level_safe(level: List[int]) -> bool:
-    is_increasing = level[1] - level[0]
+def is_level_safe(level: list[int]) -> bool:
+    direction = level[1] - level[0]
     for i in range(1, len(level)):
         difference = level[i] - level[i - 1]
-        if not 0 < abs(difference) < 4 or is_increasing * difference < 0:
+        if not 0 < abs(difference) < 4 or direction * difference < 0:
             return False
     return True
 

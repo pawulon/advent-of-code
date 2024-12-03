@@ -1,11 +1,10 @@
 from pathlib import Path
-from typing import List, Tuple
 
 
-def read_directions(input_path: Path) -> List[str]:
+def read_directions(input_path: Path) -> list[str]:
     return list(input_path.read_text())
 
-def get_moves(directions: List[str]) -> List[Tuple[int, int]]:
+def get_moves(directions: list[str]) -> list[tuple[int, int]]:
     moves = [(0, 0)]
     for direction in directions:
         match direction:

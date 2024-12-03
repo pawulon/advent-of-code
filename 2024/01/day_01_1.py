@@ -1,8 +1,7 @@
 from pathlib import Path
-from typing import Tuple, List
 
 
-def read_lists(input_path: Path) -> Tuple[List[int], List[int]]:
+def read_lists(input_path: Path) -> tuple[list[int], list[int]]:
     left_list = []
     right_list = []
     with open(input_path, 'r') as file:

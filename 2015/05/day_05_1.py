@@ -1,8 +1,7 @@
 from pathlib import Path
-from typing import List
 
 
-def read_strings(input_path: Path) -> List[str]:
+def read_strings(input_path: Path) -> list[str]:
     return input_path.read_text().split()
 
 

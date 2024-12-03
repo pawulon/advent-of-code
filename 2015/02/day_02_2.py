@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import Tuple
 
 from day_02_1 import read_presents, Present
 
@@ -20,7 +19,7 @@ def calculate_cubic_volume(present: Present) -> int:
     return l * w * h
 
 
-def find_two_smallest_dimensions(present: Present) -> Tuple[int, int]:
+def find_two_smallest_dimensions(present: Present) -> tuple[int, int]:
     l, w, h = present
     sorted_dimensions = sorted([l, w, h])
     return sorted_dimensions[0], sorted_dimensions[1]

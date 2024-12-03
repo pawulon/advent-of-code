@@ -1,9 +1,8 @@
 from pathlib import Path
-from typing import List, Tuple
 
-Present = Tuple[int, int, int]
+Present = tuple[int, int, int]
 
-def read_presents(input_path: Path) -> List[Present]:
+def read_presents(input_path: Path) -> list[Present]:
     presents = []
     with open(input_path, 'r') as file:
         for line in file:

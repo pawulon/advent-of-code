@@ -12,9 +12,12 @@ def clear_excluded_multiplications(memory: str) -> str:
     for i in range(len(memory) - dont_length):
         if memory[i:i + dont_length] == "don't()":
             enabled = False
+            i += dont_length
             continue
         if memory[i:i + do_length] == "do()":
             enabled = True
+            i += do_length
+            continue
         if enabled:
             cleared_memory += memory[i]
     cleared_memory += memory[-dont_length:]

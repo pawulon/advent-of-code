@@ -27,14 +27,14 @@ class TopoMap:
     def height_at_point(self, point: Point) -> int:
         return self.heights[point.y][point.x]
 
-    def get_possible_top_points(self, point: Point) -> set[Point]:
-        top_points: set[Point] = set()
+    def get_possible_top_points(self, point: Point) -> list[Point]:
+        top_points = []
         if self.height_at_point(point) == 8:
-            return set(self.get_hikable_points(point))
+            return self.get_hikable_points(point)
         else:
             hikable_points = self.get_hikable_points(point)
             for point in hikable_points:
-                top_points.update(self.get_possible_top_points(point))
+                top_points += self.get_possible_top_points(point)
         return top_points
 
     def get_hikable_points(self, point: Point) -> list[Point]:
@@ -57,7 +57,7 @@ def main():
     heights = read_map_heights(Path("input.txt"))
     topo_map = TopoMap(heights=heights)
     trail_heads = topo_map.find_trail_heads()
-    print(sum([len(topo_map.get_possible_top_points(trail_head)) for trail_head in trail_heads]))
+    print(sum([len(set(topo_map.get_possible_top_points(trail_head))) for trail_head in trail_heads]))
 
 
 if __name__ == '__main__':

@@ -1,4 +1,3 @@
-import os
 from collections import namedtuple
 from copy import deepcopy
 from pathlib import Path
@@ -6,9 +5,6 @@ from pathlib import Path
 Map = list[list[str]]
 Point = namedtuple("Point", ("x", "y"))
 
-
-def clear_console():
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def read_map_and_moves(input_path: Path) -> tuple[Map, list[str]]:
